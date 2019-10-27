@@ -1,0 +1,28 @@
+apply from: "$project.rootDir/tools/settings.gradle"
+
+android {
+
+    flavorDimensions 'build'
+
+    productFlavors {
+
+        app {
+            dimension 'build'
+
+            extension.appName "Iban"
+            extension.setEndpoints([
+                    prod: "https://developer.github.com/v3/",
+                    dev : "https://developer.github.com/v3/"
+            ])
+            extension.extraBuildVars([
+                    prod: [
+                            GOOGLE_PLAY_BILLING_LICENSE_KEY: "" // TODO: Add PROD Google Play Billing License Key
+                    ],
+                    dev : [
+                            GOOGLE_PLAY_BILLING_LICENSE_KEY: ""
+                    ]
+            ])
+        }
+
+    }
+}

@@ -1,0 +1,128 @@
+apply from: "$project.rootDir/tools/libraries.gradle"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    /* KOTLIN */
+    implementation libraries.kotlin.base
+    implementation libraries.kotlin.reflection
+
+    /* ANDROID JETPACK */
+    implementation libraries.androidjetpack.constraintLayout
+    implementation libraries.androidjetpack.supportAnnotations
+    implementation libraries.androidjetpack.paging
+    implementation libraries.androidjetpack.lifecycle
+    implementation libraries.androidjetpack.livedata
+    implementation libraries.androidjetpack.design
+    implementation libraries.androidjetpack.coreKtx
+    implementation libraries.androidjetpack.viewModel
+    implementation libraries.androidjetpack.recycler
+    implementation libraries.androidjetpack.base
+    implementation libraries.androidjetpack.multidex
+
+    /* ROOM */
+    implementation libraries.room.runtime
+    kapt libraries.room.compiler
+    implementation libraries.room.testing
+    implementation libraries.room.kotlinExtensions
+
+
+    /* FIREBASE */
+    implementation libraries.firebase.base
+    implementation libraries.firebase.messaging
+    implementation libraries.firebase.auth
+
+    /* CRASHLYTICS */
+    implementation(libraries.crashlytics.base) {
+        transitive = true
+    }
+
+    /* RETROFIT */
+    implementation libraries.retrofit.converter
+    implementation libraries.retrofit.base
+    implementation libraries.retrofit.gsonConverter
+
+    /* LOGGING INTERCEPTOR (OK HTTP) */
+    implementation libraries.okHttp.logging
+
+    /* ADAL */
+    implementation libraries.adal.accounts
+
+    /* DAGGER */
+    implementation libraries.dagger.base
+    implementation libraries.dagger.android
+    implementation libraries.dagger.androidSupport
+    kapt libraries.dagger.compiler
+    kapt libraries.dagger.androidProcessor
+
+    /* PAGE INDICATOR VIEW */
+    implementation libraries.pageindicator.view
+
+    /* GLIDE */
+    implementation libraries.glide.base
+    kapt libraries.glide.annotationProcessor
+
+    /* FACEBOOK */
+    implementation libraries.facebook.login
+
+    /* GOOGLE */
+    implementation libraries.google.auth
+
+    /* LOTTIE */
+    implementation libraries.lottie.lottie
+
+    /* TIMBER */
+    implementation libraries.timber.timber
+
+    /* MOSHI */
+    implementation libraries.moshi.moshi
+    implementation libraries.moshi.kotlin
+    implementation libraries.moshi.adapters
+    kapt libraries.moshi.codegen
+
+    /* DEEPLINK_DISPATCH */
+    implementation libraries.deeplinkdispatch.base
+    kapt libraries.deeplinkdispatch.annotationProcessor
+
+
+    /* MULTILINE-COLLAPSINGTOOLBAR */
+    implementation libraries.multilinecollapsingtoolbar.base
+
+    /* EXOPLAYER */
+    implementation libraries.exoplayer.base
+    implementation libraries.exoplayer.okhttpextension
+
+    /* EXOMEDIA */
+    implementation libraries.exomedia.base
+
+    /* PLAYLISTCORE */
+    implementation libraries.playlistcore.base
+
+    /* CIRCULARSEEKBAR */
+    implementation libraries.circularSeekBar.base
+
+    /* ANDROID IN APP BILLING */
+    implementation libraries.androidInAppBilling.base
+
+    /* UTILITIES TOOLS */
+    implementation libraries.utilitiesTools.konveyor
+
+    /* EXIF INTERFACE */
+    implementation libraries.exifInterface.base
+
+    /* MATERIAL CALENDAR VIEW */
+    implementation libraries.materialCalendarView.base
+
+    /* THREETEN ANDROID BACKPORT */
+    implementation libraries.threeTenABP.base
+
+    /* ANDROID-TOGGLE-SWITCH */
+    implementation libraries.androidtoggleswitch.base
+
+    /* LIVEDATABUS */
+    implementation libraries.livedatabus.base
+
+    /* ANDROID_DRAW */
+    implementation libraries.androiddraw.base
+
+}

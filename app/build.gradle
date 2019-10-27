@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "$project.rootDir/tools/versions.gradle"
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        applicationId "net.luispiressilva.iban"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    buildTypes {
+        prod {
+            initWith release
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), "$project.rootDir/tools/rules-proguard.pro"
+            manifestPlaceholders += [
+                    appIcon: "@mipmap/ic_launcher",
+                    appIconRound: "@mipmap/ic_launcher_round"
+            ]
+        }
+
+        dev {
+            initWith debug
+            debuggable true
+            applicationIdSuffix versions.appIdSuffixDev
+            manifestPlaceholders += [
+                    appIcon: "@drawable/ic_launcher_dev",
+                    appIconRound: "@drawable/ic_launcher_round_dev"
+            ]
+        }
+    }
+}
+
+
+android.variantFilter { variant ->
+    //to avoid the defaults release/debug build types and only keep the flavors
+    if(variant.buildType.name.endsWith('release') || variant.buildType.name.endsWith('debug')) {
+        variant.setIgnore(true)
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
