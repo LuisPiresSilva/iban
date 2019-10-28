@@ -35,7 +35,7 @@ android {
         variant.resValue 'string', 'app_name', '' + appName + ''
 
         variant.outputs.each { output ->
-            output.versionNameOverride = gitVersionName
+            output.versionNameOverride = versionName
             output.versionCodeOverride = versionCode
         }
     }

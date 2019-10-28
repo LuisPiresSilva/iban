@@ -3,6 +3,7 @@ apply from: "$project.rootDir/tools/libraries.gradle"
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+
     /* KOTLIN */
     implementation libraries.kotlin.base
     implementation libraries.kotlin.reflection
@@ -45,8 +46,6 @@ dependencies {
     /* LOGGING INTERCEPTOR (OK HTTP) */
     implementation libraries.okHttp.logging
 
-    /* ADAL */
-    implementation libraries.adal.accounts
 
     /* DAGGER */
     implementation libraries.dagger.base
@@ -62,11 +61,6 @@ dependencies {
     implementation libraries.glide.base
     kapt libraries.glide.annotationProcessor
 
-    /* FACEBOOK */
-    implementation libraries.facebook.login
-
-    /* GOOGLE */
-    implementation libraries.google.auth
 
     /* LOTTIE */
     implementation libraries.lottie.lottie
@@ -80,29 +74,10 @@ dependencies {
     implementation libraries.moshi.adapters
     kapt libraries.moshi.codegen
 
-    /* DEEPLINK_DISPATCH */
-    implementation libraries.deeplinkdispatch.base
-    kapt libraries.deeplinkdispatch.annotationProcessor
-
 
     /* MULTILINE-COLLAPSINGTOOLBAR */
     implementation libraries.multilinecollapsingtoolbar.base
 
-    /* EXOPLAYER */
-    implementation libraries.exoplayer.base
-    implementation libraries.exoplayer.okhttpextension
-
-    /* EXOMEDIA */
-    implementation libraries.exomedia.base
-
-    /* PLAYLISTCORE */
-    implementation libraries.playlistcore.base
-
-    /* CIRCULARSEEKBAR */
-    implementation libraries.circularSeekBar.base
-
-    /* ANDROID IN APP BILLING */
-    implementation libraries.androidInAppBilling.base
 
     /* UTILITIES TOOLS */
     implementation libraries.utilitiesTools.konveyor
@@ -110,19 +85,17 @@ dependencies {
     /* EXIF INTERFACE */
     implementation libraries.exifInterface.base
 
-    /* MATERIAL CALENDAR VIEW */
-    implementation libraries.materialCalendarView.base
 
     /* THREETEN ANDROID BACKPORT */
     implementation libraries.threeTenABP.base
 
-    /* ANDROID-TOGGLE-SWITCH */
-    implementation libraries.androidtoggleswitch.base
-
     /* LIVEDATABUS */
     implementation libraries.livedatabus.base
 
-    /* ANDROID_DRAW */
-    implementation libraries.androiddraw.base
 
+
+    /*TESTING*/
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

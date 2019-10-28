@@ -56,10 +56,6 @@ ext.libraries = [
                 logging: "com.squareup.okhttp3:logging-interceptor:$versions.loggingOkHttpVersion"
         ],
 
-        adal                      : [
-                accounts: "com.massivedisaster.adal:adal-accounts:$versions.adalVersion"
-        ],
-
         pageindicator             : [
                 view: "com.romandanylyk:pageindicatorview:$versions.pageIndicatorViewVersion@aar"
         ],
@@ -69,13 +65,6 @@ ext.libraries = [
                 annotationProcessor: "com.github.bumptech.glide:compiler:$versions.glideVersion"
         ],
 
-        facebook                  : [
-                login: "com.facebook.android:facebook-login:$versions.facebookVersion"
-        ],
-
-        google                    : [
-                auth: "com.google.android.gms:play-services-auth:$versions.googleVersion"
-        ],
 
         lottie                    : [
                 lottie: "com.airbnb.android:lottie:$versions.lottieVersion"
@@ -92,35 +81,15 @@ ext.libraries = [
                 adapters: "com.squareup.moshi:moshi-adapters:$versions.moshiVersion"
         ],
 
-        deeplinkdispatch          : [
-                base               : "com.airbnb:deeplinkdispatch:$versions.deeplinkdispatch",
-                annotationProcessor: "com.airbnb:deeplinkdispatch-processor:$versions.deeplinkdispatch",
-        ],
-
         multilinecollapsingtoolbar: [
                 base: "net.opacapp:multiline-collapsingtoolbar:$versions.multilinecollapsingtoolbar",
-        ],
-
-        exoplayer                 : [
-                base           : "com.google.android.exoplayer:exoplayer:$versions.exoplayerVersion",
-                okhttpextension: "com.google.android.exoplayer:extension-okhttp:$versions.exoplayerokhttpVersion"
-        ],
-
-        exomedia                  : [
-                base: "com.devbrackets.android:exomedia:$versions.exomediaVersion"
         ],
 
         playlistcore              : [
                 base: "com.devbrackets.android:playlistcore:$versions.playlistcoreVersion"
         ],
 
-        circularSeekBar           : [
-                base: "me.tankery.lib:circularSeekBar:$versions.circularSeekBarVersion"
-        ],
 
-        androidInAppBilling       : [
-                base: "com.android.billingclient:billing:$versions.androidInAppBillingVersion"
-        ],
 
         utilitiesTools            : [
                 konveyor: "com.github.vacxe:konveyor:$versions.konveyor"
@@ -129,20 +98,14 @@ ext.libraries = [
         exifInterface             : [
                 base: "com.android.support:exifinterface:$versions.exifInterface"
         ],
-        materialCalendarView      : [
-                base: "com.github.prolificinteractive:material-calendarview:$versions.materialCalendarViewVersion"
-        ],
+
         threeTenABP               : [
                 base: "com.jakewharton.threetenabp:threetenabp:$versions.threeTenABPVersion"
         ],
-        androidtoggleswitch       : [
-                base: "com.llollox:androidtoggleswitch:$versions.androidtoggleswitch"
-        ],
+
         livedatabus               : [
                 base: "ductranit.me.livedatabus:livedatabus:$versions.livedatabus"
         ],
-        androiddraw               : [
-                base: "com.github.divyanshub024:AndroidDraw:v$versions.androiddraw"
-        ],
+
 
 ]
