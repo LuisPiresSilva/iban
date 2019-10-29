@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewholder_generic_main_container"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="12dp"
+        android:layout_marginTop="@dimen/generic_state_card_top_margin">
+
+        <include
+            android:id="@+id/include_view"
+            layout="@layout/viewholder_generic_view_state"/>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

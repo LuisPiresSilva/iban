@@ -1,3 +1,5 @@
 <resources>
 
+    <string name="generic_no_content_text">There aren\'t any %s</string>
+    <string name="generic_error_retry_text">Some error ocurred\n\nPress me to retry</string>
 </resources>

@@ -36,16 +36,6 @@ ext.libraries = [
                 reflection: "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
         ],
 
-        firebase                  : [
-                base     : "com.google.firebase:firebase-core:$versions.firebaseVersion",
-                messaging: "com.google.firebase:firebase-messaging:$versions.firebaseMessagingVersion",
-                auth     : "com.google.firebase:firebase-auth:$versions.firebaseAuthVersion"
-        ],
-
-        crashlytics               : [
-                base: "com.crashlytics.sdk.android:crashlytics:$versions.crashlyticsVersion"
-        ],
-
         retrofit                  : [
                 converter    : "com.squareup.retrofit2:converter-moshi:$versions.retrofitVersion",
                 gsonConverter: "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion",
@@ -79,6 +69,10 @@ ext.libraries = [
                 kotlin  : "com.squareup.moshi:moshi-kotlin:$versions.moshiVersion",
                 codegen : "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshiVersion",
                 adapters: "com.squareup.moshi:moshi-adapters:$versions.moshiVersion"
+        ],
+
+        fasterxml                     : [
+                base   : "com.fasterxml.jackson.module:jackson-module-kotlin:$versions.fasterxmlVersion"
         ],
 
         multilinecollapsingtoolbar: [

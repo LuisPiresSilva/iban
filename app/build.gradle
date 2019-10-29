@@ -47,6 +47,10 @@ android {
             applicationIdSuffix versions.appIdSuffixDev
         }
     }
+
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 

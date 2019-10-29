@@ -28,16 +28,6 @@ dependencies {
     implementation libraries.room.kotlinExtensions
 
 
-    /* FIREBASE */
-    implementation libraries.firebase.base
-    implementation libraries.firebase.messaging
-    implementation libraries.firebase.auth
-
-    /* CRASHLYTICS */
-    implementation(libraries.crashlytics.base) {
-        transitive = true
-    }
-
     /* RETROFIT */
     implementation libraries.retrofit.converter
     implementation libraries.retrofit.base
@@ -74,6 +64,8 @@ dependencies {
     implementation libraries.moshi.adapters
     kapt libraries.moshi.codegen
 
+    /* FASTER_XML */
+    implementation libraries.fasterxml.base
 
     /* MULTILINE-COLLAPSINGTOOLBAR */
     implementation libraries.multilinecollapsingtoolbar.base
