@@ -60,7 +60,6 @@ class GistListActivity : BaseActivity<ActivityGistListBinding, GistListViewModel
                     dataBinding.gistListPullRefresh.isRefreshing = false
                 }
                 Status.SUCCESS -> {
-                    Timber.i("test: " + it.data.toString())
                     dataBinding.gistListPullRefresh.isRefreshing = false
                 }
             }
