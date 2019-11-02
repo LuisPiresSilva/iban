@@ -1,5 +1,7 @@
 package net.luispiressilva.iban.ui.splash
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Handler
 import net.luispiressilva.iban.R
 import net.luispiressilva.iban.ui.base.BaseActivity
@@ -12,6 +14,8 @@ import net.luispiressilva.iban.databinding.ActivitySplashBinding
  */
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
+    override var shouldFullScreenStrech = true
+
     override fun layoutToInflate() = R.layout.activity_splash
 
     override fun getViewModelClass() = SplashViewModel::class.java
@@ -22,8 +26,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
 
     override fun doOnCreated() {
+
         if(viewModel.timerStarted.not()) {
             viewModel.timerStarted = true
+            playLogoAnimation()
             Handler().postDelayed({
                 navigate()
             }, viewModel.WAITING_TIME)
@@ -35,5 +41,16 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
         startActivityDebounced(manager.navigateGistList(this), navDebounceTimer)
     }
 
+
+    fun playLogoAnimation() {
+        val scaleX = ObjectAnimator.ofFloat(dataBinding.splashLogoImage,
+            "scaleX", 1f).setDuration(viewModel.WAITING_TIME - 300)
+        val scaleY = ObjectAnimator.ofFloat(dataBinding.splashLogoImage,
+            "scaleY", 1f).setDuration(viewModel.WAITING_TIME - 300)
+
+        val animationSet = AnimatorSet()
+        animationSet.play(scaleX).with(scaleY)
+        animationSet.start()
+    }
 
 }

@@ -1,6 +1,6 @@
 package net.luispiressilva.iban.network
 
-import net.luispiressilva.iban.network.EndpointCollection
+import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 
 /**
@@ -8,4 +8,8 @@ import javax.inject.Inject
  */
 class ApiProvider @Inject constructor(private val service: EndpointCollection) {
 
+    var refreshingToken : AtomicBoolean = AtomicBoolean(false)
+
+
+    fun fetchUserPublicGists(userName: String) = service.fetchUserPublicGists(userName)
 }

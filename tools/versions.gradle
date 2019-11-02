@@ -14,6 +14,7 @@ ext.versions = [
         multidexVersion                       : '2.0.1',
         pageIndicatorViewVersion              : '1.0.3',
         glideVersion                          : '4.10.0',
+        glideOkhttpVersion                    : '4.9.0',
         lottieVersion                         : '3.0.7',
         timberVersion                         : '4.7.1',
         moshiVersion                          : '1.8.0',

@@ -22,8 +22,6 @@ import javax.inject.Singleton
 @Module
 class ApiModule {
 
-
-
     @Singleton
     @Provides
     fun providesCallAdapterFactory() = CallAdapterFactory()
@@ -69,6 +67,7 @@ class ApiModule {
 
     }
 
+
     @Provides
     @Singleton
     fun provideRetrofit(callAdapterFactory: CallAdapterFactory, moshi: Moshi, okHttpClient: OkHttpClient): Retrofit {
@@ -84,6 +83,7 @@ class ApiModule {
     @Provides
     @Singleton
     fun provideEndpointCollection(retrofit: Retrofit): EndpointCollection = retrofit.create(EndpointCollection::class.java)
+
 
     @Provides
     fun providesApiProvider(service: EndpointCollection) = ApiProvider(service)

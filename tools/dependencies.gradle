@@ -50,6 +50,7 @@ dependencies {
     /* GLIDE */
     implementation libraries.glide.base
     kapt libraries.glide.annotationProcessor
+    implementation libraries.glide.okhttp
 
 
     /* LOTTIE */

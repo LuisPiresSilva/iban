@@ -12,18 +12,14 @@ class CallManager @Inject constructor(val application: Application) {
 
     fun navigateGistList(context: Context?): Intent {
         val intent = Intent(context, GistListActivity::class.java)
-
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-
         return intent
     }
 
 
-    fun navigateGistDetail(context: Context?): Intent {
+    fun navigateGistDetail(context: Context?, id: String): Intent {
         val intent = Intent(context, GistDetailActivity::class.java)
-
-
+        intent.putExtra(GistDetailActivity.ID, id)
         return intent
     }
 

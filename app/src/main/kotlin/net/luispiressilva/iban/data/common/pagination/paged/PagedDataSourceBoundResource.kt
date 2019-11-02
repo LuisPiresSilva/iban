@@ -4,11 +4,14 @@ import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.MediatorLiveData
 import androidx.paging.PageKeyedDataSource
-import net.luispiressilva.iban.data.common.ApiErrorResponse
 import net.luispiressilva.iban.data.common.CallResult
+import net.luispiressilva.iban.data.common.ServerErrors
 import net.luispiressilva.iban.data.common.Status
 import net.luispiressilva.iban.data.common.pagination.NetworkState
+import net.luispiressilva.iban.network.models.ApiErrorResponse
+import net.luispiressilva.iban.network.models.ApiResponse
 import net.luispiressilva.iban.utils.helper.AppExecutors
+import retrofit2.Response
 
 abstract class PagedDataSourceBoundResource<PaginationType, ResultType>(
     private val appExecutors: AppExecutors,
@@ -76,8 +79,7 @@ abstract class PagedDataSourceBoundResource<PaginationType, ResultType>(
                     retry = { loadInit(params, callback) }
                     postInitialState(
                         NetworkState.error(
-                            ApiErrorResponse<PaginationType>("", apiResponse.code, apiResponse.message
-                            ?: "")
+                            apiResponse.status.error
                         ))
 //                    }
                 }
@@ -130,8 +132,7 @@ abstract class PagedDataSourceBoundResource<PaginationType, ResultType>(
                     retry = { loadNext(params, callback) }
                     postInitialState(
                         NetworkState.error(
-                            ApiErrorResponse<PaginationType>("", apiResponse.code, apiResponse.message
-                            ?: "")
+                            apiResponse.status.error
                         ))
 //                    }
                 }

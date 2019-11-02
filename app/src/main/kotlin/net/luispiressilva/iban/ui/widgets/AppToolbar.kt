@@ -71,7 +71,9 @@ class AppToolbar : FrameLayout {
 
     private fun applyStyles() {
         dataBinding.title.text = title
-        dataBinding.toolbar.navigationIcon = ResourcesCompat.getDrawable(resources, icon ?: -1, null)
+        icon?.let {
+            dataBinding.toolbar.navigationIcon = ResourcesCompat.getDrawable(resources, it, null)
+        }
     }
 
     fun setToolbarIcon(res: Resources, id: Int) {
@@ -83,6 +85,8 @@ class AppToolbar : FrameLayout {
         dataBinding.title.text = this.title
     }
 
+
+    //I like this setting for simple use cases but menu items should be used
     fun setToolbarRightIconOne(id: Int, clickAction : () -> Unit) {
         dataBinding.toolbarRightIconOne.setImageResource(id)
         dataBinding.title.setPadding(0,0,0,0)

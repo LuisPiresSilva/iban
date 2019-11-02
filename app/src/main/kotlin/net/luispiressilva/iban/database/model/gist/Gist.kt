@@ -9,7 +9,10 @@ import kotlinx.android.parcel.Parcelize
 class Gist(
 
         @Embedded
-        var gist: GistEntity
+        var gist: GistEntity,
 
         //Relations
+        @Relation(parentColumn = "${GIST_PREFIX}id", entityColumn = "${GIST_PREFIX}id", entity = FileEntity::class)
+        var files: List<FileEntity>
+
 ) : Parcelable

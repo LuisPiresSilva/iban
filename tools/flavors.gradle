@@ -11,8 +11,8 @@ android {
 
             extension.appName "Iban"
             extension.setEndpoints([
-                    prod: "https://developer.github.com/v3/",
-                    dev : "https://developer.github.com/v3/"
+                    prod: "https://api.github.com/",
+                    dev : "https://api.github.com/"
             ])
             extension.extraBuildVars([
                     prod: [

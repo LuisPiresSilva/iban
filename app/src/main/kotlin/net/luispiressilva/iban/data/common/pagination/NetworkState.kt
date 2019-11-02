@@ -1,6 +1,6 @@
 package net.luispiressilva.iban.data.common.pagination
 
-import net.luispiressilva.iban.data.common.ApiErrorResponse
+import net.luispiressilva.iban.network.models.ApiErrorResponse
 
 class NetworkState(
         val status: Int,

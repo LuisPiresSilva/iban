@@ -1,5 +1,7 @@
 package net.luispiressilva.iban.data.common
 
+import net.luispiressilva.iban.network.models.ApiErrorResponse
+
 class NetworkState(
     val status: Int,
     val error: ApiErrorResponse<*>? = null

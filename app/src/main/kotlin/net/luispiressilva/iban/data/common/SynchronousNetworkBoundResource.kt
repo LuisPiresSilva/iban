@@ -2,8 +2,10 @@ package net.luispiressilva.iban.data.common
 
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
-import net.luispiressilva.iban.BuildConfig
 import net.luispiressilva.iban.app.API_TIMEOUT
+import net.luispiressilva.iban.network.models.ApiErrorResponse
+import net.luispiressilva.iban.network.models.ApiResponse
+import net.luispiressilva.iban.network.models.ApiSuccessResponse
 
 abstract class SynchronousNetworkBoundResource<ResultType, RefreshType>
 @MainThread constructor() {

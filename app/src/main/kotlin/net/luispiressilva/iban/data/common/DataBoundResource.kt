@@ -6,9 +6,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Observer
 import net.luispiressilva.iban.app.API_TIMEOUT
+import net.luispiressilva.iban.network.models.ApiErrorResponse
+import net.luispiressilva.iban.network.models.ApiResponse
+import net.luispiressilva.iban.network.models.ApiSuccessResponse
 import net.luispiressilva.iban.utils.helper.AppExecutors
 
-abstract class NetworkBoundResource<ResultType, RequestType, RefreshType> @MainThread constructor(
+// DB -> Network -> Auth
+abstract class DataBoundResource<ResultType, RequestType, RefreshType> @MainThread constructor(
     private val appExecutors: AppExecutors
 ) {
 
@@ -47,19 +51,20 @@ abstract class NetworkBoundResource<ResultType, RequestType, RefreshType> @MainT
         }
     }
 
+    //UNDER DEVELOPEMENT
+    //trying to mix into single observer both calls ie, we listen to data change in the db
+    // but still can make network calls from the same returned connection, retry them
+    // and handle responses
     fun dbAndNetwork() {
         requestType = Type.BOTH
         val databaseSource = loadFromDatabase()
         if (databaseSource != null) {
             result.addSource(databaseSource) { data ->
-                result.removeSource(databaseSource)
+                setValue(CallResult.success(0, data, null, this))
                 if (shouldRequestFromNetwork(data)) {
+                    result.removeSource(databaseSource)
                     result.removeSource(network)
                     requestFromNetwork(true)
-                } else {
-                    result.addSource(databaseSource) { newData ->
-                        setValue(CallResult.success(200, newData, null, this))
-                    }
                 }
             }
         }
@@ -74,7 +79,7 @@ abstract class NetworkBoundResource<ResultType, RequestType, RefreshType> @MainT
     }
 
     private fun requestFromNetwork(withDb: Boolean = false) {
-        val apiResponse = createCall()
+        val apiResponse = createCall()!!
 
         setValue(CallResult.loading())
 
@@ -89,8 +94,11 @@ abstract class NetworkBoundResource<ResultType, RequestType, RefreshType> @MainT
                         val databaseSource = loadFromDatabase()
                         if (withDb && databaseSource != null) {
                             appExecutors.getMainThread().execute {
+                                setValue(CallResult.success(200, null, response.headers, this))
+                                //must improve this part -> unnecessary second callback
+                                result.removeSource(databaseSource)
                                 result.addSource(databaseSource) { newData ->
-                                    setValue(CallResult.success(200, newData, response.headers, this))
+                                    setValue(CallResult.success(0, newData, null, this))
                                 }
                             }
                         } else {
@@ -98,15 +106,18 @@ abstract class NetworkBoundResource<ResultType, RequestType, RefreshType> @MainT
                                 result.addSource(network) { newData ->
                                     setValue(CallResult.success(200, newData as ResultType, response.headers, this))
                                 }
-
                                 updateNetworkSource(responseBody)
                             }
                         }
                     }
                 }
+                //must handle BOTH scenario for error and refresh token scenarios
                 is ApiErrorResponse -> {
                     appExecutors.getMainThread().execute {
                         refreshCall = refreshCall()
+
+                        //handles automatic refresh token, commented out for this exercise only
+
 //                        if (response.errorCode == 401 && refreshCall != null) {
 //                            if (accountUtils.refreshingToken.get()) {
 //                                appExecutors.getNetworkIO().execute {
@@ -178,7 +189,7 @@ abstract class NetworkBoundResource<ResultType, RequestType, RefreshType> @MainT
     protected open fun shouldRequestFromNetwork(data: ResultType?) = true
 
     @MainThread
-    protected abstract fun createCall(): LiveData<ApiResponse<RequestType>>
+    protected open fun createCall(): LiveData<ApiResponse<RequestType>>? = null
 
     private inner class RefreshObserver : Observer<ApiResponse<RefreshType>> {
         override fun onChanged(response: ApiResponse<RefreshType>?) {

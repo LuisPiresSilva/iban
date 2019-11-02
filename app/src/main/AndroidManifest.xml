@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.luispiressilva.iban">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -12,10 +14,10 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".ui.splash.SplashActivity">
+        <activity android:name=".ui.splash.SplashActivity"
+            android:theme="@style/TransparentStatus">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,7 +26,8 @@
 
         </activity>
 
-        <activity android:name=".ui.gist_detail.GistDetailActivity">
+        <activity android:name=".ui.gist_detail.GistDetailActivity"
+            android:theme="@style/TransparentStatus">
 
         </activity>
 

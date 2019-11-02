@@ -6,11 +6,15 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import net.luispiressilva.iban.database.dao.GistDAO
+import net.luispiressilva.iban.database.dao.GistFileDAO
+import net.luispiressilva.iban.database.dao.UserDAO
+import net.luispiressilva.iban.database.model.gist.FileEntity
 import net.luispiressilva.iban.database.model.gist.GistEntity
+import net.luispiressilva.iban.database.model.gist.UserEntity
 import net.luispiressilva.iban.utils.helper.AppExecutors
 
 
-@Database(entities = [GistEntity::class], version = 1)
+@Database(entities = [GistEntity::class, UserEntity::class, FileEntity::class], version = 1)
 abstract class IbanDatabase : RoomDatabase() {
 
     private var appExecutors: AppExecutors? = null
@@ -36,6 +40,9 @@ abstract class IbanDatabase : RoomDatabase() {
 
     abstract fun getGistsDAO(): GistDAO
 
+    abstract fun getGistFilesDAO(): GistFileDAO
+
+    abstract fun getUserDAO(): UserDAO
 
     companion object {
         lateinit var database: IbanDatabase
