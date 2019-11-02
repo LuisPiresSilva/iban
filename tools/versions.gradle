@@ -12,17 +12,14 @@ ext.versions = [
         retrofitVersion                       : '2.6.1',
         daggerVersion                         : '2.24',
         multidexVersion                       : '2.0.1',
-        pageIndicatorViewVersion              : '1.0.3',
         glideVersion                          : '4.10.0',
         glideOkhttpVersion                    : '4.9.0',
-        lottieVersion                         : '3.0.7',
         timberVersion                         : '4.7.1',
         moshiVersion                          : '1.8.0',
         fasterxmlVersion                      : '2.9.+',
-        loggingOkHttpVersion                  : '3.14.2',//4.0.0 has break changes and brakes
+        loggingOkHttpVersion                  : '3.14.2',
         multilinecollapsingtoolbar            : '27.1.1',
 
-        playlistcoreVersion                   : '2.0.1',
         roomVersion                           : '2.1.0',
         konveyor                              : '1.0.3',
         exifInterfaceVersion                  : '28.0.0',

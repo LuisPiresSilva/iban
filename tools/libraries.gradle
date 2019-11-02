@@ -46,20 +46,12 @@ ext.libraries = [
                 logging: "com.squareup.okhttp3:logging-interceptor:$versions.loggingOkHttpVersion"
         ],
 
-        pageindicator             : [
-                view: "com.romandanylyk:pageindicatorview:$versions.pageIndicatorViewVersion@aar"
-        ],
-
         glide                     : [
                 base               : "com.github.bumptech.glide:glide:$versions.glideVersion",
                 annotationProcessor: "com.github.bumptech.glide:compiler:$versions.glideVersion",
                 okhttp             : "com.github.bumptech.glide:okhttp3-integration:$versions.glideOkhttpVersion"
         ],
 
-
-        lottie                    : [
-                lottie: "com.airbnb.android:lottie:$versions.lottieVersion"
-        ],
 
         timber                    : [
                 timber: "com.jakewharton.timber:timber:$versions.timberVersion"
@@ -79,12 +71,6 @@ ext.libraries = [
         multilinecollapsingtoolbar: [
                 base: "net.opacapp:multiline-collapsingtoolbar:$versions.multilinecollapsingtoolbar",
         ],
-
-        playlistcore              : [
-                base: "com.devbrackets.android:playlistcore:$versions.playlistcoreVersion"
-        ],
-
-
 
         utilitiesTools            : [
                 konveyor: "com.github.vacxe:konveyor:$versions.konveyor"

@@ -44,17 +44,10 @@ dependencies {
     kapt libraries.dagger.compiler
     kapt libraries.dagger.androidProcessor
 
-    /* PAGE INDICATOR VIEW */
-    implementation libraries.pageindicator.view
-
     /* GLIDE */
     implementation libraries.glide.base
     kapt libraries.glide.annotationProcessor
     implementation libraries.glide.okhttp
-
-
-    /* LOTTIE */
-    implementation libraries.lottie.lottie
 
     /* TIMBER */
     implementation libraries.timber.timber
@@ -71,13 +64,11 @@ dependencies {
     /* MULTILINE-COLLAPSINGTOOLBAR */
     implementation libraries.multilinecollapsingtoolbar.base
 
-
     /* UTILITIES TOOLS */
     implementation libraries.utilitiesTools.konveyor
 
     /* EXIF INTERFACE */
     implementation libraries.exifInterface.base
-
 
     /* THREETEN ANDROID BACKPORT */
     implementation libraries.threeTenABP.base
