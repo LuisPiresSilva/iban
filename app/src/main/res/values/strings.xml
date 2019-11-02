@@ -4,4 +4,8 @@
     <string name="generic_error_retry_text">Some error ocurred\n\nPress me to retry</string>
 
     <string name="gists_list_title">Jake Wharton Public Gists</string>
+
+    <string name="button_ok">OK</string>
+    <string name="error_generic_title">Error</string>
+
 </resources>

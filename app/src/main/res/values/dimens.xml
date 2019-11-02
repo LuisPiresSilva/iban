@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    GLOBALS-->
+    <item name="match_parent" format="integer" type="dimen">-1</item>
+    <item name="wrap_content" format="integer" type="dimen">-2</item>
+
     <!-- RECYCLER VIEW GENERIC STATE CARD -->
     <dimen name="generic_state_card_top_margin">12dp</dimen>
 
+    <!-- POPUP -->
+    <dimen name="margin_horizontal_popup">35dp</dimen>
+
+    <!-- ACTION BUTTON -->
+    <dimen name="action_button_text_size">14sp</dimen>
 </resources>

@@ -12,7 +12,6 @@ import net.luispiressilva.iban.utils.decoration.SpaceItemDecorations
 import net.luispiressilva.iban.utils.helper.DebounceTimer
 import net.luispiressilva.iban.utils.helper.extensions.startActivityDebounced
 import net.luispiressilva.iban.utils.helper.extensions.toDp
-import timber.log.Timber
 
 /**
  * Activity to apply the splash screen.
@@ -26,6 +25,7 @@ class GistListActivity : BaseActivity<ActivityGistListBinding, GistListViewModel
     private val navDebounceTimer: DebounceTimer by lazy { DebounceTimer(lifecycle) }
 
     private val gistsAdapter = GistsRecyclerViewAdapter()
+
     override fun doOnCreated() {
         setToolbar(dataBinding.gistListToolbar)
 
@@ -58,6 +58,11 @@ class GistListActivity : BaseActivity<ActivityGistListBinding, GistListViewModel
                 }
                 Status.FAILED -> {
                     dataBinding.gistListPullRefresh.isRefreshing = false
+                    if(gistsAdapter.itemCount <= 0) {
+                        it.status.error?.errorMessage?.let { message ->
+                            showError(message)
+                        }
+                    }
                 }
                 Status.SUCCESS -> {
                     dataBinding.gistListPullRefresh.isRefreshing = false
@@ -78,10 +83,10 @@ class GistListActivity : BaseActivity<ActivityGistListBinding, GistListViewModel
         dataBinding.gistListPullRefresh.setOnRefreshListener {
             refresh()
         }
-
     }
 
     private fun refresh() {
         viewModel.dataBoundResource.retry()
     }
+
 }

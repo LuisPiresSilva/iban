@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.diamondbybold.dreamwise.utils.helper.DimensionHelper
+import net.luispiressilva.iban.utils.helper.DimensionHelper
 import net.luispiressilva.iban.R
 import net.luispiressilva.iban.app.API_TIMEOUT
 import net.luispiressilva.iban.app.glide.GlideApp
@@ -28,7 +28,6 @@ import net.luispiressilva.iban.utils.helper.DebounceTimer
 import net.luispiressilva.iban.utils.helper.InsetsListener
 import net.luispiressilva.iban.utils.helper.extensions.*
 import org.threeten.bp.format.DateTimeParseException
-import timber.log.Timber
 
 /**
  * Activity to apply the splash screen.

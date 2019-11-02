@@ -29,6 +29,7 @@ import net.luispiressilva.iban.utils.manager.NetworkManager
 import dagger.android.AndroidInjection
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
+import net.luispiressilva.iban.R
 import javax.inject.Inject
 
 
@@ -293,6 +294,12 @@ abstract class BaseActivity<T : ViewDataBinding, VM : ViewModel> : AppCompatActi
         } else {
             onNetworkUnavailable.invoke()
         }
+    }
+
+    fun showError(error: String) {
+        dialogManager
+            .generateErrorDialog(getString(R.string.error_generic_title), error, getString(R.string.button_ok))
+            .show(supportFragmentManager, "popup_error")
     }
 
 }

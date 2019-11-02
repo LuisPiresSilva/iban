@@ -7,6 +7,7 @@ import net.luispiressilva.iban.di.factory.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import net.luispiressilva.iban.ui.dialog.MessageDialogViewModel
 import net.luispiressilva.iban.ui.gist_detail.GistDetailViewModel
 import net.luispiressilva.iban.ui.gist_list.GistListViewModel
 import net.luispiressilva.iban.ui.splash.SplashViewModel
@@ -15,6 +16,11 @@ import net.luispiressilva.iban.ui.splash.SplashViewModel
 abstract class ViewModelModule {
     @Binds
     abstract fun bindsViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MessageDialogViewModel::class)
+    abstract fun bindsMessageDialogViewModel(messageDialogViewModel: MessageDialogViewModel): ViewModel
 
     @Binds
     @IntoMap

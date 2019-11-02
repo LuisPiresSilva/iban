@@ -22,9 +22,6 @@ open class App @Inject constructor() : MultiDexApplication(), HasAndroidInjector
 
     override fun androidInjector() = androidInjector
 
-//    @Inject
-//    lateinit var database: DreamwiseDatabase
-
     override fun onCreate() {
         super.onCreate()
         MultiDex.install(this)
@@ -32,8 +29,6 @@ open class App @Inject constructor() : MultiDexApplication(), HasAndroidInjector
         if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
         }
-
-//        database.deleteDatabase()
 
     }
 

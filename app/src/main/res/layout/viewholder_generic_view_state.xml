@@ -21,21 +21,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/viewholder_custom_view_loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:scaleType="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="loading_dreamwise_black.json"
-            app:lottie_loop="true"
-            android:visibility="visible"/>
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/viewholder_generic_view_empty_content"
             android:layout_width="match_parent"

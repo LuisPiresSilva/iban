@@ -23,7 +23,7 @@ class GenericStateCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemV
 
         var mCard = card
         if(card == null) {
-            mCard = GenericStateCard(binding.includeView.viewholderCustomViewLoading.isVisible
+            mCard = GenericStateCard(binding.includeView.viewholderGenericViewLoading.isVisible
             ,binding.includeView.viewholderGenericViewEmptyContent.isVisible
             ,binding.includeView.viewholderGenericViewError.isVisible)
         }
@@ -47,17 +47,17 @@ class GenericStateCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemV
             binding.includeView.viewholderGenericViewError.text = itemView.context.getString(R.string.generic_error_retry_text)
 
             if(mCard.showingLoading) {
-                binding.includeView.viewholderCustomViewLoading.showView()
+                binding.includeView.viewholderGenericViewLoading.showView()
                 binding.includeView.viewholderGenericViewEmptyContent.removeView()
                 binding.includeView.viewholderGenericViewError.removeView()
             }
             if(mCard.showingEmptyContent && noContentType != -1) {
-                binding.includeView.viewholderCustomViewLoading.removeView()
+                binding.includeView.viewholderGenericViewLoading.removeView()
                 binding.includeView.viewholderGenericViewEmptyContent.showView()
                 binding.includeView.viewholderGenericViewError.removeView()
             }
             if(mCard.showingError) {
-                binding.includeView.viewholderCustomViewLoading.removeView()
+                binding.includeView.viewholderGenericViewLoading.removeView()
                 binding.includeView.viewholderGenericViewEmptyContent.removeView()
                 binding.includeView.viewholderGenericViewError.showView()
             }

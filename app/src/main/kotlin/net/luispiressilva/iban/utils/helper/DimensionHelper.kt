@@ -1,10 +1,9 @@
-package com.diamondbybold.dreamwise.utils.helper
+package net.luispiressilva.iban.utils.helper
 
 import android.app.Activity
 import android.content.Context
 import android.graphics.Point
 import androidx.fragment.app.FragmentActivity
-import net.luispiressilva.iban.R
 
 class DimensionHelper(private val ctx : Context) {
     companion object {
