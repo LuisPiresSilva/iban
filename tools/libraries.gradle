@@ -36,16 +36,6 @@ ext.libraries = [
                 reflection: "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
         ],
 
-        firebase                  : [
-                base     : "com.google.firebase:firebase-core:$versions.firebaseVersion",
-                messaging: "com.google.firebase:firebase-messaging:$versions.firebaseMessagingVersion",
-                auth     : "com.google.firebase:firebase-auth:$versions.firebaseAuthVersion"
-        ],
-
-        crashlytics               : [
-                base: "com.crashlytics.sdk.android:crashlytics:$versions.crashlyticsVersion"
-        ],
-
         retrofit                  : [
                 converter    : "com.squareup.retrofit2:converter-moshi:$versions.retrofitVersion",
                 gsonConverter: "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion",
@@ -56,19 +46,12 @@ ext.libraries = [
                 logging: "com.squareup.okhttp3:logging-interceptor:$versions.loggingOkHttpVersion"
         ],
 
-        pageindicator             : [
-                view: "com.romandanylyk:pageindicatorview:$versions.pageIndicatorViewVersion@aar"
-        ],
-
         glide                     : [
                 base               : "com.github.bumptech.glide:glide:$versions.glideVersion",
-                annotationProcessor: "com.github.bumptech.glide:compiler:$versions.glideVersion"
+                annotationProcessor: "com.github.bumptech.glide:compiler:$versions.glideVersion",
+                okhttp             : "com.github.bumptech.glide:okhttp3-integration:$versions.glideOkhttpVersion"
         ],
 
-
-        lottie                    : [
-                lottie: "com.airbnb.android:lottie:$versions.lottieVersion"
-        ],
 
         timber                    : [
                 timber: "com.jakewharton.timber:timber:$versions.timberVersion"
@@ -81,15 +64,13 @@ ext.libraries = [
                 adapters: "com.squareup.moshi:moshi-adapters:$versions.moshiVersion"
         ],
 
+        fasterxml                     : [
+                base   : "com.fasterxml.jackson.module:jackson-module-kotlin:$versions.fasterxmlVersion"
+        ],
+
         multilinecollapsingtoolbar: [
                 base: "net.opacapp:multiline-collapsingtoolbar:$versions.multilinecollapsingtoolbar",
         ],
-
-        playlistcore              : [
-                base: "com.devbrackets.android:playlistcore:$versions.playlistcoreVersion"
-        ],
-
-
 
         utilitiesTools            : [
                 konveyor: "com.github.vacxe:konveyor:$versions.konveyor"

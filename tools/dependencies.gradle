@@ -28,16 +28,6 @@ dependencies {
     implementation libraries.room.kotlinExtensions
 
 
-    /* FIREBASE */
-    implementation libraries.firebase.base
-    implementation libraries.firebase.messaging
-    implementation libraries.firebase.auth
-
-    /* CRASHLYTICS */
-    implementation(libraries.crashlytics.base) {
-        transitive = true
-    }
-
     /* RETROFIT */
     implementation libraries.retrofit.converter
     implementation libraries.retrofit.base
@@ -54,16 +44,10 @@ dependencies {
     kapt libraries.dagger.compiler
     kapt libraries.dagger.androidProcessor
 
-    /* PAGE INDICATOR VIEW */
-    implementation libraries.pageindicator.view
-
     /* GLIDE */
     implementation libraries.glide.base
     kapt libraries.glide.annotationProcessor
-
-
-    /* LOTTIE */
-    implementation libraries.lottie.lottie
+    implementation libraries.glide.okhttp
 
     /* TIMBER */
     implementation libraries.timber.timber
@@ -74,17 +58,17 @@ dependencies {
     implementation libraries.moshi.adapters
     kapt libraries.moshi.codegen
 
+    /* FASTER_XML */
+    implementation libraries.fasterxml.base
 
     /* MULTILINE-COLLAPSINGTOOLBAR */
     implementation libraries.multilinecollapsingtoolbar.base
-
 
     /* UTILITIES TOOLS */
     implementation libraries.utilitiesTools.konveyor
 
     /* EXIF INTERFACE */
     implementation libraries.exifInterface.base
-
 
     /* THREETEN ANDROID BACKPORT */
     implementation libraries.threeTenABP.base
